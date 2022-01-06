@@ -150,30 +150,32 @@ function getDistanceTime(time) {
   let timePost = time
   let timeNow = new Date()
 
-  let distance = timeNow - timePost // milisecod 
+  let distance = timeNow - timePost // perhitungan menghasilkan milisecond, (untuk mendapatkan hari, jam, menit, detik, kita lakukan convert dibwah)
 
-//  convert menjadi hari => milisecond dalam 1 hari
+  //  convert milisecond
   let milisecond = 1000 // seribu dalam 1 detik
-  let secondsInHours = 3600 // dalam 1 jam berapa detik 60*60
-  let hoursInDay = 23 // dalam 1 hari berapa jam
+  let secondsInHours = 3600 // dalam 1 jam 3600 detik
+  let hoursInDay = 23 // dalam 1 hari 23 jam
 
   let seconds = 60 // detik
   let minutes = 60 // menit
 
-  let distanceDay = distance / (milisecond * secondsInHours * hoursInDay) // keterangan kita cari tahu dulu dalam sehari berapa milisecond
-  let distanceHours = Math.floor(distance / (milisecond * seconds * minutes)) // milisecon/detik/menit
-  let distanceMinutes = Math.floor(distance / (milisecond * seconds))
-  let distanceSecond = Math.floor(distance / milisecond)
+  let distanceDay = distance / (milisecond * secondsInHours * hoursInDay) // perhitungan untuk mendapatkan hari
+  let distanceHours = Math.floor(distance / (milisecond * seconds * minutes)) // perhitungan untuk mendapatkan jam
+  let distanceMinutes = Math.floor(distance / (milisecond * seconds)) // perhitungan untuk mendapatkan menit
+  let distanceSecond = Math.floor(distance / milisecond) // perhitungan untuk mendapatkan detik
+
 
   // kondisi menampilkan hari
   if (distanceDay >= 1) {
       return `${distanceDay} day ago`;
 
   } else if(distanceHours >= 1) {
-    
+      // kondisi menampilkan jam
       return `${distanceHours} hours ago`;
 
   } else if(distanceMinutes >= 1) {
+    // kondisi menampilkan menit
       return `${distanceMinutes} minutes ago`;
 
   } else {
