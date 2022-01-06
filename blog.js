@@ -129,14 +129,15 @@ function firstBlogContent() {
 
 let month = ['January', 'Februari', 'March', 'April', 'May', 'June', 'July', 'August', 'September','October', 'November','December']
 
+// isi dari parameter ada di potsAt, yang isinya adalah new Date(), dari new Date(), di pecahkan/tampung di variabel dibawah
 function getFullTime(time) {
 
-  let date = time.getDate()
-  let monthIndex = time.getMonth() 
-  let year = time.getFullYear()
+  let date = time.getDate() // mendapatkan tanggal
+  let monthIndex = time.getMonth()  // mendapatkan bulan
+  let year = time.getFullYear() // mendpatkan tahun
 
-  let hours = time.getHours()
-  let minutes = time.getMinutes()
+  let hours = time.getHours() // mendapatkan jam
+  let minutes = time.getMinutes() // mendapatkan menit
 
 
   let fullTime = `${date} ${month[monthIndex]} ${year} ${hours}:${minutes} WIB`
