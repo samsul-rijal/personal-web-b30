@@ -154,36 +154,32 @@ function getDistanceTime(time) {
 
 //  convert menjadi hari => milisecond dalam 1 hari
   let milisecond = 1000 // seribu dalam 1 detik
-  let secondInHours = 3600 // dalam 1 jam berapa detik 60*60
+  let secondsInHours = 3600 // dalam 1 jam berapa detik 60*60
   let hoursInDay = 23 // dalam 1 hari berapa jam
 
   let seconds = 60 // detik
   let minutes = 60 // menit
 
-  let distanceDay = distance / (milisecond * secondInHours * hoursInDay)
-  let distanceHours = Math.floor(distance / (milisecond * seconds * minutes)) // milisecond/detik/menit
+  let distanceDay = distance / (milisecond * secondsInHours * hoursInDay) // keterangan kita cari tahu dulu dalam sehari berapa milisecond
+  let distanceHours = Math.floor(distance / (milisecond * seconds * minutes)) // milisecon/detik/menit
   let distanceMinutes = Math.floor(distance / (milisecond * seconds))
-  let distanceSeconds = Math.floor(distance / milisecond)
-
-  distanceDay = Math.floor(distanceDay)
+  let distanceSecond = Math.floor(distance / milisecond)
 
   // kondisi menampilkan hari
   if (distanceDay >= 1) {
-    return `${distanceDay} day ago`;
-  } else {
-    // kondisi menampilkan jam
-    if (distanceHours >= 1) {
+      return `${distanceDay} day ago`;
+
+  } else if(distanceHours >= 1) {
+    
       return `${distanceHours} hours ago`;
-    } else {
-      //  kondisi menampilkan menit
-      if (distanceMinutes >= 1) {
-        return `${distanceMinutes} minutes ago`;
-      } else {
-        // menampilkan detik
-        return `${distanceSeconds} seconds ago`;
-      }
-    }
+
+  } else if(distanceMinutes >= 1) {
+      return `${distanceMinutes} minutes ago`;
+
+  } else {
+      return `${distanceSecond} seconds ago`;
   }
+
 }
 
 setInterval(() => {
