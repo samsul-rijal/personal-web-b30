@@ -7,9 +7,9 @@ function addBlog(event){
     let title = document.getElementById('input-blog-title').value
     let content = document.getElementById('input-blog-content').value
 
-    let image = document.getElementById('input-blog-image').files
+    let image = document.getElementById('input-blog-image').files // files untuk mendapatkan data file keseluruhan dari gambar
 
-    image = URL.createObjectURL(image[0])
+    image = URL.createObjectURL(image[0]) // untuk membuat url gambar, agar bisa diakses/tampil
 
     let blog ={
         title: title,
@@ -19,7 +19,7 @@ function addBlog(event){
         postAt: new Date()
     }
 
-    blogs.push(blog)
+    blogs.push(blog) // untuk mengirimkan data blog ke dalam variabel blogs yang ada diatas di tampung di array
 
     console.log(blogs);
 
