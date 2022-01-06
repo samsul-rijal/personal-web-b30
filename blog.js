@@ -184,6 +184,7 @@ function getDistanceTime(time) {
 
 }
 
+// untuk menjalankan function render blog setiap 3 detik
 setInterval(() => {
   // console.log('render');
   renderBlog()
